@@ -246,33 +246,73 @@ function stopBirthdayMelody() {
 // Reveal secret message
 function revealSecret() {
     showModal('🔮 Secret Message Revealed! 🔮', `
-        <div style="text-align: center; line-height: 1.8; padding: 20px;">
-            <div style="font-size: 4rem; margin: 20px 0;">🌸💖🌸</div>
+        <div style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            max-width: 100%;
+            box-sizing: border-box;
+        ">
+            <div style="font-size: 3rem; margin: 10px 0;">🌸💖🌸</div>
             
             <div style="
                 background: linear-gradient(135deg, #ffeef3, #e8f4f8);
-                padding: 25px;
-                border-radius: 20px;
-                border: 3px solid #ff6b9d;
-                box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
-                margin: 20px 0;
+                padding: 20px;
+                border-radius: 15px;
+                border: 2px solid #ff6b9d;
+                box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3);
+                margin: 10px 0;
+                max-width: 90%;
+                width: 100%;
+                box-sizing: border-box;
             ">
-                <h2 style="color: #ff6b9d; font-family: 'Dancing Script', cursive; font-size: 2.2rem; margin: 15px 0;">
+                <h2 style="
+                    color: #ff6b9d; 
+                    font-family: 'Dancing Script', cursive; 
+                    font-size: 1.8rem; 
+                    margin: 10px 0;
+                    text-align: center;
+                    line-height: 1.3;
+                ">
                     💌 A Special Message Just For You 💌
                 </h2>
                 
-                <p style="font-size: 1.4rem; color: #333; font-weight: 600; margin: 20px 0;">
+                <p style="
+                    font-size: 1.2rem; 
+                    color: #333; 
+                    font-weight: 600; 
+                    margin: 15px 0;
+                    text-align: center;
+                    line-height: 1.4;
+                ">
                     <strong>Thank you so much Ichha for being a beautiful part of my life.</strong>
                 </p>
                 
-                <p style="font-size: 1.1rem; color: #666; font-style: italic; margin: 15px 0;">
+                <p style="
+                    font-size: 1rem; 
+                    color: #666; 
+                    font-style: italic; 
+                    margin: 12px 0;
+                    text-align: center;
+                    line-height: 1.5;
+                ">
                     You bring so much joy, laughter, and love into every moment we share. 
                     Your friendship is one of the most precious gifts in my life! ✨
                 </p>
                 
-                <div style="font-size: 2.5rem; margin: 20px 0;">🌟💕🌟</div>
+                <div style="font-size: 2rem; margin: 15px 0; text-align: center;">🌟💕🌟</div>
                 
-                <p style="font-size: 1rem; color: #ff6b9d; font-weight: 500;">
+                <p style="
+                    font-size: 0.95rem; 
+                    color: #ff6b9d; 
+                    font-weight: 500;
+                    text-align: center;
+                    margin: 10px 0;
+                    line-height: 1.4;
+                ">
                     Happy Birthday, beautiful! Here's to many more amazing memories together! 🎂🎉
                 </p>
             </div>
