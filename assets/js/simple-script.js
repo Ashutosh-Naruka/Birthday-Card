@@ -245,9 +245,48 @@ function stopBirthdayMelody() {
 
 // Reveal secret message
 function revealSecret() {
-    const secretText = document.getElementById('secretText');
+    showModal('🔮 Secret Message Revealed! 🔮', `
+        <div style="text-align: center; line-height: 1.8; padding: 20px;">
+            <div style="font-size: 4rem; margin: 20px 0;">🌸💖🌸</div>
+            
+            <div style="
+                background: linear-gradient(135deg, #ffeef3, #e8f4f8);
+                padding: 25px;
+                border-radius: 20px;
+                border: 3px solid #ff6b9d;
+                box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+                margin: 20px 0;
+            ">
+                <h2 style="color: #ff6b9d; font-family: 'Dancing Script', cursive; font-size: 2.2rem; margin: 15px 0;">
+                    💌 A Special Message Just For You 💌
+                </h2>
+                
+                <p style="font-size: 1.4rem; color: #333; font-weight: 600; margin: 20px 0;">
+                    <strong>Thank you so much Ichha for being a beautiful part of my life.</strong>
+                </p>
+                
+                <p style="font-size: 1.1rem; color: #666; font-style: italic; margin: 15px 0;">
+                    You bring so much joy, laughter, and love into every moment we share. 
+                    Your friendship is one of the most precious gifts in my life! ✨
+                </p>
+                
+                <div style="font-size: 2.5rem; margin: 20px 0;">🌟💕🌟</div>
+                
+                <p style="font-size: 1rem; color: #ff6b9d; font-weight: 500;">
+                    Happy Birthday, beautiful! Here's to many more amazing memories together! 🎂🎉
+                </p>
+            </div>
+        </div>
+    `);
     
-    if (!secretRevealed) {
+    createHeartEffect();
+    createSparkleEffect();
+    createCelebrationEffect();
+    showNotification('💖 Secret message revealed! You mean the world to me, Ichha! 🌸');
+    
+    // Legacy code for backward compatibility 
+    const secretText = document.getElementById('secretText');
+    if (secretText && !secretRevealed) {
         secretText.innerHTML = `
             <div style="font-size: 1.2rem; color: #d63384; font-weight: 600;">
                 🌸 SECRET MESSAGE REVEALED! 🌸<br><br>
