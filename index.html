@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Happy Birthday Ichha! 🌸</title>
+    <link rel="stylesheet" href="assets/css/simple-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <div class="birthday-title">
+                <h1>🌸 Happy Birthday 🌸</h1>
+                <h2>Dear Ichha!</h2>
+            </div>
+            <div class="welcome-message">
+                <p>A special surprise made just for you with love! 💕</p>
+                <button class="start-btn" onclick="startCard()">
+                    ✨ Open Your Card ✨
+                </button>
+            </div>
+        </div>
+        <div class="floating-flowers" id="floatingFlowers"></div>
+    </div>
+
+    <!-- Main Card Container -->
+    <div class="card-container" id="cardContainer">
+        
+        <!-- Navigation Menu -->
+        <div class="simple-nav">
+            <button class="nav-btn active" onclick="showSection('memories')">
+                🌺 Our Memories
+            </button>
+            <button class="nav-btn" onclick="showSection('wishes')">
+                💝 Birthday Wishes
+            </button>
+            <button class="nav-btn" onclick="showSection('tribute')">
+                🌟 Beautiful Tribute
+            </button>
+            <button class="nav-btn" onclick="showSection('surprise')">
+                🎁 Special Surprise
+            </button>
+        </div>
+
+        <!-- Section 1: Our Memories -->
+        <div class="section active" id="section-memories">
+            <div class="section-header">
+                <h2>🌺 Our Beautiful Memories 🌺</h2>
+                <p>Click on each memory to read our special moments!</p>
+            </div>
+            
+            <div class="memories-grid">
+                <div class="memory-card" onclick="showMemoryDetail('coaching')">
+                    <div class="memory-icon">📚</div>
+                    <h3>Coaching Days</h3>
+                    <p>Study sessions & laughs</p>
+                </div>
+                
+                <div class="memory-card" onclick="showMemoryDetail('walks')">
+                    <div class="memory-icon">🚶‍♀️</div>
+                    <h3>Our Walks</h3>
+                    <p>Heart-to-heart talks</p>
+                </div>
+                
+                <div class="memory-card" onclick="showMemoryDetail('college')">
+                    <div class="memory-icon">🎓</div>
+                    <h3>College Times</h3>
+                    <p>Adventures together</p>
+                </div>
+                
+                <div class="memory-card" onclick="showMemoryDetail('friendship')">
+                    <div class="memory-icon">👭</div>
+                    <h3>Best Friends</h3>
+                    <p>Unbreakable bond</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Birthday Wishes -->
+        <div class="section" id="section-wishes">
+            <div class="section-header">
+                <h2>💝 Special Birthday Wishes 💝</h2>
+                <p>Heartfelt messages just for you!</p>
+            </div>
+            
+            <div class="wishes-container">
+                <div class="wish-card">
+                    <div class="wish-emoji">🌻</div>
+                    <p>"May your birthday bloom with happiness, just like the flowers you love!"</p>
+                </div>
+                
+                <div class="wish-card">
+                    <div class="wish-emoji">🍛</div>
+                    <p>"Wishing you all the delicious South Indian and Rajasthani treats your heart desires!"</p>
+                </div>
+                
+                <div class="wish-card">
+                    <div class="wish-emoji">✨</div>
+                    <p>"May this new year bring you endless dreams come true and amazing adventures!"</p>
+                </div>
+                
+                <div class="wish-card">
+                    <div class="wish-emoji">💖</div>
+                    <p>"Thank you for being the most wonderful friend anyone could ask for!"</p>
+                </div>
+                
+                <div class="wish-card special-wish">
+                    <div class="wish-emoji">🎂</div>
+                    <p><strong>"Happy Birthday, Ichha! Here's to many more years of beautiful friendship and unforgettable memories together!" 🥳</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Beautiful Tribute -->
+        <div class="section" id="section-tribute">
+            <div class="section-header">
+                <h2>🌟 Beautiful Tribute to Ichha 🌟</h2>
+                <p>Celebrating the amazing person you are!</p>
+            </div>
+            
+            <div class="tribute-container">
+                <div class="main-photo-frame" onclick="showPhotoDetails()">
+                    <div class="photo-display">
+                        <img src="assets/images/ichha.jpg" alt="Beautiful Ichha" style="
+                            width: 100%; 
+                            height: 300px; 
+                            object-fit: cover; 
+                            border-radius: 15px;
+                            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(255, 107, 157, 0.4)';" 
+                           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(255, 107, 157, 0.3)';"
+                           onerror="this.src='assets/images/placeholder.svg';">
+                    </div>
+                    <div class="photo-caption">
+                        <p>"🌸 The most wonderful friend anyone could ask for! Looking absolutely beautiful as always! 💖🌸"</p>
+                    </div>
+                </div>
+                
+                <div class="tribute-qualities">
+                    <h3>✨ What Makes Ichha So Special ✨</h3>
+                    <div class="qualities-grid">
+                        <div class="quality-card" onclick="showQualityDetail('kind')">
+                            <div class="quality-icon">💝</div>
+                            <h4>Kind Heart</h4>
+                            <p>Always caring and thoughtful</p>
+                        </div>
+                        
+                        <div class="quality-card" onclick="showQualityDetail('smart')">
+                            <div class="quality-icon">🧠</div>
+                            <h4>So Smart</h4>
+                            <p>Brilliant mind, great ideas</p>
+                        </div>
+                        
+                        <div class="quality-card" onclick="showQualityDetail('funny')">
+                            <div class="quality-icon">😄</div>
+                            <h4>Makes Me Laugh</h4>
+                            <p>The best sense of humor</p>
+                        </div>
+                        
+                        <div class="quality-card" onclick="showQualityDetail('supportive')">
+                            <div class="quality-icon">🤝</div>
+                            <h4>Always There</h4>
+                            <p>My biggest supporter</p>
+                        </div>
+                        
+                        <div class="quality-card" onclick="showQualityDetail('beautiful')">
+                            <div class="quality-icon">🌺</div>
+                            <h4>Beautiful Soul</h4>
+                            <p>Inside and out</p>
+                        </div>
+                        
+                        <div class="quality-card" onclick="showQualityDetail('loyal')">
+                            <div class="quality-icon">👑</div>
+                            <h4>True Friend</h4>
+                            <p>Loyal and trustworthy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievements-section">
+                    <h3>🏆 Ichha's Amazing Achievements 🏆</h3>
+                    <div class="achievements-list">
+                        <div class="achievement-item">
+                            <span class="achievement-icon">📚</span>
+                            <div class="achievement-text">
+                                <h4>Study Champion</h4>
+                                <p>Always excels in academics and helps others too!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <span class="achievement-icon">🌟</span>
+                            <div class="achievement-text">
+                                <h4>Friendship Goals</h4>
+                                <p>The definition of what a best friend should be!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <span class="achievement-icon">💪</span>
+                            <div class="achievement-text">
+                                <h4>Strong & Independent</h4>
+                                <p>Faces challenges with grace and determination!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <span class="achievement-icon">🎨</span>
+                            <div class="achievement-text">
+                                <h4>Creative Soul</h4>
+                                <p>Brings creativity and joy to everything she does!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="birthday-countdown">
+                    <h3>🎂 Birthday Celebration Counter 🎂</h3>
+                    <div class="celebration-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" id="birthdaysCount">0</div>
+                            <div class="stat-label">Amazing birthdays we'll celebrate together!</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="friendshipYears">0</div>
+                            <div class="stat-label">Years of beautiful friendship ahead!</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="memoriesCount">0</div>
+                            <div class="stat-label">Wonderful memories we'll create!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Amazing Surprises -->
+        <div class="section" id="section-surprise">
+            <div class="section-header">
+                <h2>🎁 Amazing Surprises Just for You! 🎁</h2>
+                <p>So many wonderful things to explore!</p>
+            </div>
+            
+            <div class="surprise-container">
+                <div class="surprise-item">
+                    <h3>🍛 Your Favorite Food Corner</h3>
+                    <div class="food-corner">
+                        <div class="cuisine-section">
+                            <h4>🥘 South Indian Delights</h4>
+                            <div class="food-items">
+                                <div class="food-item" onclick="showFoodDetails('sambar')">
+                                    <span>🍛</span>
+                                    <div>
+                                        <strong>Sambar</strong>
+                                        <small>Comfort food at its best!</small>
+                                    </div>
+                                </div>
+                                <div class="food-item" onclick="showFoodDetails('dosa')">
+                                    <span>🥞</span>
+                                    <div>
+                                        <strong>Crispy Dosa</strong>
+                                        <small>Golden and perfect!</small>
+                                    </div>
+                                </div>
+                                <div class="food-item" onclick="showFoodDetails('nariyal')">
+                                    <span>🥥</span>
+                                    <div>
+                                        <strong>Nariyal Ki Chutney</strong>
+                                        <small>Fresh and flavorful!</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cuisine-section">
+                            <h4>🫓 Rajasthani Treats</h4>
+                            <div class="food-items">
+                                <div class="food-item" onclick="showFoodDetails('dalbaati')">
+                                    <span>🥮</span>
+                                    <div>
+                                        <strong>Dal Baati Churma</strong>
+                                        <small>Royal Rajasthani delight!</small>
+                                    </div>
+                                </div>
+                                <div class="food-item" onclick="showFoodDetails('ghevar')">
+                                    <span>🧈</span>
+                                    <div>
+                                        <strong>Ghevar</strong>
+                                        <small>Sweet like our friendship!</small>
+                                    </div>
+                                </div>
+                                <div class="food-item" onclick="showFoodDetails('malai')">
+                                    <span>🍯</span>
+                                    <div>
+                                        <strong>Malai Jalebi</strong>
+                                        <small>Sweet and creamy delight!</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="surprise-item">
+                    <h3>🎵 Birthday Entertainment Center</h3>
+                    <div class="entertainment-center">
+                        <button class="music-btn" onclick="toggleBirthdayMusic()">
+                            🎶 Play Special Song
+                        </button>
+                        <button class="music-btn" onclick="playDifferentMelody()">
+                            🎼 Play Different Melody
+                        </button>
+                        <button class="music-btn" onclick="playCelebrationSounds()">
+                            🎉 Celebration Sounds
+                        </button>
+                    </div>
+                    <div class="music-visualizer" id="musicVisualizer">
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="surprise-item">
+                    <h3>🎮 Friendship Games</h3>
+                    <div class="games-collection">
+                        <div class="mini-game" onclick="startColorGame()">
+                            <div class="game-icon">🍽️</div>
+                            <h4>Which is my favorite?</h4>
+                            <p>Can you guess my favorite food?</p>
+                        </div>
+                        
+                        <div class="mini-game" onclick="startFlowerGame()">
+                            <div class="game-icon">🌸</div>
+                            <h4>Flower Garden</h4>
+                            <p>Create a beautiful garden!</p>
+                        </div>
+                        
+                        <div class="mini-game" onclick="startQuizGame()">
+                            <div class="game-icon">🧠</div>
+                            <h4>Friendship Quiz</h4>
+                            <p>Test our friendship knowledge!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="surprise-item">
+                    <h3>🎪 Interactive Fun Zone</h3>
+                    <div class="fun-zone">
+                        <div class="fun-activity" onclick="createFireworks()">
+                            <span>🎆</span>
+                            <div>
+                                <h4>Birthday Fireworks</h4>
+                                <p>Click to celebrate with fireworks!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fun-activity" onclick="showWishingWell()">
+                            <span>💫</span>
+                            <div>
+                                <h4>Make a Wish</h4>
+                                <p>Make a special birthday wish!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fun-activity" onclick="createRainbow()">
+                            <span>🌈</span>
+                            <div>
+                                <h4>Rainbow Magic</h4>
+                                <p>Paint the sky with colors!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fun-activity" onclick="revealSecret()">
+                            <span>🔮</span>
+                            <div>
+                                <h4>Secret Message</h4>
+                                <p>Discover a hidden message!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="surprise-item">
+                    <h3>💌 Personal Message Board</h3>
+                    <div class="message-board">
+                        <div class="message-card" onclick="showPersonalMessage('gratitude')">
+                            <div class="message-icon">🙏</div>
+                            <h4>Gratitude</h4>
+                            <p>Thank you for being you</p>
+                        </div>
+                        
+                        <div class="message-card" onclick="showPersonalMessage('appreciation')">
+                            <div class="message-icon">💖</div>
+                            <h4>Appreciation</h4>
+                            <p>All the things I love about you</p>
+                        </div>
+                        
+                        <div class="message-card" onclick="showPersonalMessage('future')">
+                            <div class="message-icon">🌟</div>
+                            <h4>Future Together</h4>
+                            <p>Our friendship journey ahead</p>
+                        </div>
+                        
+                        <div class="message-card" onclick="showPersonalMessage('birthday')">
+                            <div class="message-icon">🎂</div>
+                            <h4>Birthday Special</h4>
+                            <p>Why today is so special</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="surprise-item">
+                    <h3>🎨 Create & Customize</h3>
+                    <div class="creation-tools">
+                        <button class="create-btn" onclick="openVirtualCard()">
+                            📝 Write Virtual Card
+                        </button>
+                        <button class="create-btn" onclick="designFlowerBouquet()">
+                            💐 Design Bouquet
+                        </button>
+                        <button class="create-btn" onclick="createMemoryScrapbook()">
+                            📖 Memory Scrapbook
+                        </button>
+                        <button class="create-btn" onclick="recordBirthdayMessage()">
+                            🎤 Record Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memory Detail Modal -->
+    <div class="modal" id="memoryModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Memory content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="birthdayMusic" loop>
+        <!-- Generated melody will play through Web Audio API -->
+    </audio>
+
+    <!-- Floating Elements -->
+    <div class="background-elements" id="backgroundElements"></div>
+
+    <script src="assets/js/simple-script.js"></script>
+</body>
+</html>

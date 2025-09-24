@@ -1,0 +1,1101 @@
+/* ✨ Ichha's Magical Birthday Universe Styles ✨ */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-pink: #ff6b9d;
+    --secondary-pink: #ffeef3;
+    --primary-blue: #a8edea;
+    --secondary-blue: #e8f4f8;
+    --accent-purple: #d63384;
+    --gold: #ffd700;
+    --cosmic-dark: #1a1a2e;
+    --cosmic-purple: #16213e;
+    --star-white: #ffffff;
+    --gradient-1: linear-gradient(135deg, #ff6b9d, #c44569);
+    --gradient-2: linear-gradient(135deg, #a8edea, #fed6e3);
+    --gradient-3: linear-gradient(135deg, #ffeef3, #e8f4f8, #f0e8ff);
+    --shadow-magical: 0 15px 35px rgba(255, 107, 157, 0.3);
+    --shadow-cosmic: 0 10px 30px rgba(26, 26, 46, 0.4);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--gradient-3);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6b9d, #a8edea, #d63384);
+    background-size: 300% 300%;
+    animation: gradientShift 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.magical-loader {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.flower-loader {
+    font-size: 3rem;
+    animation: flowerSpin 2s ease-in-out infinite;
+}
+
+.flower-loader:nth-child(2) { animation-delay: 0.3s; }
+.flower-loader:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes flowerSpin {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.2); }
+    50% { transform: rotate(180deg) scale(1.5); }
+    75% { transform: rotate(270deg) scale(1.2); }
+}
+
+.loading-content h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.loading-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ff6b9d);
+    border-radius: 10px;
+    width: 0%;
+    animation: loadingProgress 3s ease-in-out infinite;
+}
+
+@keyframes loadingProgress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+.loading-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Welcome Portal */
+.welcome-portal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--cosmic-dark) 0%, var(--cosmic-purple) 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9000;
+}
+
+.welcome-portal.active {
+    display: flex;
+}
+
+.portal-content {
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.magical-title h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ff6b9d, #ffd700, #a8edea);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+.magical-title h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+@keyframes textGlow {
+    from { filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.5)); }
+    to { filter: drop-shadow(0 0 20px rgba(168, 237, 234, 0.8)); }
+}
+
+.portal-description {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.portal-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.portal-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.portal-btn.primary {
+    background: var(--gradient-1);
+    color: white;
+    box-shadow: var(--shadow-magical);
+}
+
+.portal-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid var(--primary-pink);
+}
+
+.portal-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4);
+}
+
+.portal-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background: rgba(255, 107, 157, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Portal Particles */
+.portal-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Universe Container */
+.universe-container {
+    display: none;
+    min-height: 100vh;
+    position: relative;
+}
+
+.universe-container.active {
+    display: block;
+}
+
+/* Cosmic Navigation */
+.cosmic-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    box-shadow: var(--shadow-magical);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-width: 70px;
+}
+
+.nav-item:hover {
+    background: rgba(255, 107, 157, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-item.active {
+    background: var(--gradient-1);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* World Containers */
+.world {
+    display: none;
+    min-height: 100vh;
+    padding: 100px 20px 50px;
+    position: relative;
+}
+
+.world.active {
+    display: block;
+}
+
+.world-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.world-header h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    background: var(--gradient-1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    animation: headerFloat 3s ease-in-out infinite;
+}
+
+.world-header p {
+    font-size: 1.2rem;
+    color: var(--accent-purple);
+    opacity: 0.8;
+}
+
+@keyframes headerFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Garden World Styles */
+.garden-container {
+    position: relative;
+    height: 70vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-magical);
+    background: linear-gradient(135deg, #e3f2fd, #f0f9ff);
+}
+
+#gardenCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.garden-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.garden-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.garden-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+    background: var(--primary-pink);
+    color: white;
+}
+
+.garden-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Constellation World Styles */
+.constellation-container {
+    position: relative;
+    height: 70vh;
+    background: linear-gradient(135deg, var(--cosmic-dark), var(--cosmic-purple));
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-cosmic);
+}
+
+#starCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.constellation-ui {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 20px;
+}
+
+.star-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.constellation-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Gifts World Styles */
+.gifts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gift-box {
+    position: relative;
+    height: 200px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.gift-box:hover {
+    transform: translateY(-10px) rotateY(5deg);
+}
+
+.gift-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    backface-visibility: hidden;
+    transition: all 0.6s ease;
+    box-shadow: var(--shadow-magical);
+}
+
+.gift-wrap::before {
+    content: '🎁';
+    animation: giftBounce 2s ease-in-out infinite;
+}
+
+@keyframes giftBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.gift-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all 0.6s ease;
+    box-shadow: var(--shadow-magical);
+}
+
+.gift-box.unwrapped {
+    transform: rotateY(180deg);
+}
+
+.gift-content h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--accent-purple);
+    margin-bottom: 10px;
+}
+
+.gift-content p {
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Timeline World Styles */
+.timeline-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.timeline-btn {
+    background: var(--gradient-2);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.timeline-btn:hover, .timeline-btn.active {
+    background: var(--gradient-1);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-magical);
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    min-height: 400px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-magical);
+}
+
+/* Kitchen World Styles */
+.kitchen-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.recipe-shelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.recipe-book {
+    background: var(--gradient-2);
+    border-radius: 20px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: var(--shadow-magical);
+}
+
+.recipe-book:hover {
+    transform: translateY(-5px);
+    background: var(--gradient-1);
+    color: white;
+}
+
+.recipe-book h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.recipe-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.recipe-preview span {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.recipe-display {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    min-height: 300px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-magical);
+    text-align: center;
+}
+
+/* Quiz World Styles */
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz-scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--gradient-2);
+    border-radius: 20px;
+    box-shadow: var(--shadow-magical);
+}
+
+.score-item {
+    text-align: center;
+}
+
+.score-label {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.score-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-purple);
+}
+
+.quiz-content {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    min-height: 400px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-magical);
+}
+
+/* Poems World Styles */
+.poems-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.poem-selector {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.poem-btn {
+    background: var(--gradient-2);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.poem-btn.active, .poem-btn:hover {
+    background: var(--gradient-1);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-magical);
+}
+
+.poem-display {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    min-height: 300px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-magical);
+    margin-bottom: 20px;
+}
+
+.poem-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.poem-control-btn {
+    background: var(--gradient-1);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-magical);
+}
+
+.poem-control-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+}
+
+/* Secrets World Styles */
+.secrets-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.decoder-area {
+    background: var(--gradient-2);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-magical);
+}
+
+.cipher-wheel {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 0 auto 30px;
+}
+
+.wheel-outer, .wheel-inner {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid var(--accent-purple);
+}
+
+.wheel-outer {
+    width: 100%;
+    height: 100%;
+    animation: rotateClockwise 20s linear infinite;
+}
+
+.wheel-inner {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    animation: rotateCounterClockwise 15s linear infinite;
+}
+
+@keyframes rotateClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+.secret-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.secret-input input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.secret-input button {
+    background: var(--gradient-1);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.secrets-found, .secret-clues {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-magical);
+}
+
+/* Universal Controls */
+.universe-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.control-btn:hover {
+    background: var(--primary-pink);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-magical);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: var(--gradient-3);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: var(--shadow-magical);
+    animation: modalSlideIn 0.5s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--accent-purple);
+}
+
+.voice-modal {
+    text-align: center;
+}
+
+.voice-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.voice-btn {
+    background: var(--gradient-1);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-magical);
+}
+
+.voice-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.voice-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+}
+
+.voice-visualizer {
+    height: 80px;
+    background: rgba(255, 107, 157, 0.1);
+    border-radius: 10px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cosmic-nav {
+        position: fixed;
+        bottom: 20px;
+        top: auto;
+        width: calc(100% - 40px);
+        max-width: none;
+        left: 20px;
+        transform: none;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .cosmic-nav::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav-item {
+        min-width: 60px;
+        padding: 10px 12px;
+    }
+    
+    .nav-icon {
+        font-size: 1.3rem;
+    }
+    
+    .nav-label {
+        font-size: 0.7rem;
+    }
+    
+    .world {
+        padding: 80px 15px 100px;
+    }
+    
+    .world-header h2 {
+        font-size: 2rem;
+    }
+    
+    .garden-controls {
+        bottom: 10px;
+        gap: 10px;
+    }
+    
+    .garden-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .gifts-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .portal-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    .magical-title h1 {
+        font-size: 2.2rem;
+    }
+    
+    .magical-title h2 {
+        font-size: 2rem;
+    }
+    
+    .universe-controls {
+        bottom: 100px;
+        right: 10px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .magical-title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .magical-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .portal-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .portal-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .world-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .secrets-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .garden-container {
+        height: 50vh;
+    }
+    
+    .constellation-container {
+        height: 50vh;
+    }
+}
+
+/* Special Animations */
+@keyframes magicalAppear {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.8); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+.magical-entrance {
+    animation: magicalAppear 0.8s cubic-bezier(0.4, 0.2, 0.2, 1) forwards;
+}
+
+/* Glowing effects */
+.glow {
+    box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+}
+
+.glow-blue {
+    box-shadow: 0 0 20px rgba(168, 237, 234, 0.5);
+}
+
+.glow-gold {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}

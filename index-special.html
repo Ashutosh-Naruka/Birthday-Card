@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Ichha's Magical Birthday Universe ✨</title>
+    <link rel="stylesheet" href="assets/css/special-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="magical-loader">
+                <div class="flower-loader">🌸</div>
+                <div class="flower-loader">🌺</div>
+                <div class="flower-loader">🌷</div>
+            </div>
+            <h2>Creating Ichha's Magical World...</h2>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+            <p class="loading-text" id="loadingText">Planting digital flowers...</p>
+        </div>
+    </div>
+
+    <!-- Welcome Portal -->
+    <div class="welcome-portal" id="welcomePortal">
+        <div class="portal-content">
+            <div class="magical-title">
+                <h1>✨ Welcome to Ichha's ✨</h1>
+                <h2>🌸 Magical Birthday Universe 🌸</h2>
+            </div>
+            <div class="portal-description">
+                <p>A special world created just for you, filled with memories, surprises, and magical experiences!</p>
+            </div>
+            <div class="portal-buttons">
+                <button class="portal-btn primary" onclick="enterUniverse()">
+                    🚀 Enter My Universe
+                </button>
+                <button class="portal-btn secondary" onclick="showPreview()">
+                    👀 Sneak Peek
+                </button>
+            </div>
+            <div class="portal-features">
+                <div class="feature">🌻 3D Blooming Garden</div>
+                <div class="feature">🎮 Interactive Games</div>
+                <div class="feature">📱 Voice Messages</div>
+                <div class="feature">⭐ Memory Constellation</div>
+                <div class="feature">🎁 Virtual Gifts</div>
+                <div class="feature">📝 Personal Poems</div>
+            </div>
+        </div>
+        <div class="portal-particles" id="portalParticles"></div>
+    </div>
+
+    <!-- Main Universe Container -->
+    <div class="universe-container" id="universeContainer">
+        <!-- Navigation Menu -->
+        <div class="cosmic-nav" id="cosmicNav">
+            <div class="nav-item active" data-world="garden" title="3D Garden">
+                <span class="nav-icon">🌻</span>
+                <span class="nav-label">Garden</span>
+            </div>
+            <div class="nav-item" data-world="constellation" title="Memory Stars">
+                <span class="nav-icon">⭐</span>
+                <span class="nav-label">Stars</span>
+            </div>
+            <div class="nav-item" data-world="gifts" title="Virtual Gifts">
+                <span class="nav-icon">🎁</span>
+                <span class="nav-label">Gifts</span>
+            </div>
+            <div class="nav-item" data-world="timeline" title="Photo Journey">
+                <span class="nav-icon">📸</span>
+                <span class="nav-label">Journey</span>
+            </div>
+            <div class="nav-item" data-world="kitchen" title="Food Corner">
+                <span class="nav-icon">🍛</span>
+                <span class="nav-label">Kitchen</span>
+            </div>
+            <div class="nav-item" data-world="quiz" title="Friendship Quiz">
+                <span class="nav-icon">🎮</span>
+                <span class="nav-label">Quiz</span>
+            </div>
+            <div class="nav-item" data-world="poems" title="Personal Poems">
+                <span class="nav-icon">📝</span>
+                <span class="nav-label">Poems</span>
+            </div>
+            <div class="nav-item" data-world="secrets" title="Hidden Messages">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-label">Secrets</span>
+            </div>
+        </div>
+
+        <!-- World 1: 3D Blooming Garden -->
+        <div class="world active" id="world-garden">
+            <div class="world-header">
+                <h2>🌻 Your Magical Blooming Garden 🌻</h2>
+                <p>Watch flowers bloom and grow as you explore our memories!</p>
+            </div>
+            <div class="garden-container">
+                <canvas id="gardenCanvas"></canvas>
+                <div class="garden-controls">
+                    <button class="garden-btn" onclick="plantFlower()">🌱 Plant Flower</button>
+                    <button class="garden-btn" onclick="makeItRain()">🌧️ Rain Dance</button>
+                    <button class="garden-btn" onclick="changeSeason()">🍂 Change Season</button>
+                    <button class="garden-btn" onclick="addButterflies()">🦋 Call Butterflies</button>
+                </div>
+                <div class="garden-info" id="gardenInfo">
+                    <p>Click and drag to explore your garden! 🌸</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- World 2: Memory Constellation -->
+        <div class="world" id="world-constellation">
+            <div class="world-header">
+                <h2>⭐ Constellation of Our Memories ⭐</h2>
+                <p>Connect the stars to unlock beautiful memories!</p>
+            </div>
+            <div class="constellation-container">
+                <canvas id="starCanvas"></canvas>
+                <div class="constellation-ui">
+                    <div class="star-info" id="starInfo">
+                        <h3>✨ Click on stars to reveal memories ✨</h3>
+                        <p>Each star holds a special moment we shared!</p>
+                    </div>
+                    <div class="constellation-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="starsConnected">0</span>
+                            <span class="stat-label">Stars Connected</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="memoriesUnlocked">0</span>
+                            <span class="stat-label">Memories Unlocked</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- World 3: Virtual Gift Unwrapping -->
+        <div class="world" id="world-gifts">
+            <div class="world-header">
+                <h2>🎁 Special Gifts Just for You 🎁</h2>
+                <p>Unwrap each gift to discover beautiful surprises!</p>
+            </div>
+            <div class="gifts-container">
+                <div class="gift-box" data-gift="poem">
+                    <div class="gift-wrap"></div>
+                    <div class="gift-content">
+                        <h3>📝 Personal Poem</h3>
+                        <p>A poem written just for you!</p>
+                    </div>
+                </div>
+                <div class="gift-box" data-gift="playlist">
+                    <div class="gift-wrap"></div>
+                    <div class="gift-content">
+                        <h3>🎵 Memory Playlist</h3>
+                        <p>Songs that remind me of us!</p>
+                    </div>
+                </div>
+                <div class="gift-box" data-gift="photos">
+                    <div class="gift-wrap"></div>
+                    <div class="gift-content">
+                        <h3>📸 Photo Collage</h3>
+                        <p>Our beautiful moments together!</p>
+                    </div>
+                </div>
+                <div class="gift-box" data-gift="wishes">
+                    <div class="gift-wrap"></div>
+                    <div class="gift-content">
+                        <h3>💌 Birthday Wishes</h3>
+                        <p>Heartfelt messages from your bestie!</p>
+                    </div>
+                </div>
+                <div class="gift-box" data-gift="future">
+                    <div class="gift-wrap"></div>
+                    <div class="gift-content">
+                        <h3>🔮 Future Adventures</h3>
+                        <p>Plans for more amazing memories!</p>
+                    </div>
+                </div>
+                <div class="gift-box" data-gift="voice">
+                    <div class="gift-wrap"></div>
+                    <div class="gift-content">
+                        <h3>🎤 Voice Message</h3>
+                        <p>A special message just for you!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- World 4: Photo Timeline Journey -->
+        <div class="world" id="world-timeline">
+            <div class="world-header">
+                <h2>📸 Our Friendship Journey 📸</h2>
+                <p>Travel through time and relive our beautiful moments!</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-nav">
+                    <button class="timeline-btn" data-period="coaching">📚 Coaching Days</button>
+                    <button class="timeline-btn" data-period="college">🎓 College Times</button>
+                    <button class="timeline-btn" data-period="walks">🚶‍♀️ Our Walks</button>
+                    <button class="timeline-btn" data-period="fun">🎉 Fun Moments</button>
+                </div>
+                <div class="timeline-content" id="timelineContent">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- World 5: Food Kitchen Corner -->
+        <div class="world" id="world-kitchen">
+            <div class="world-header">
+                <h2>🍛 Ichha's Special Kitchen 🍛</h2>
+                <p>Your favorite South Indian & Rajasthani recipes!</p>
+            </div>
+            <div class="kitchen-container">
+                <div class="recipe-shelf">
+                    <div class="recipe-book" data-cuisine="south-indian">
+                        <h3>🥘 South Indian Delights</h3>
+                        <div class="recipe-preview">
+                            <span>🍛 Sambar</span>
+                            <span>🥞 Dosa</span>
+                            <span>🍚 Biryani</span>
+                        </div>
+                    </div>
+                    <div class="recipe-book" data-cuisine="rajasthani">
+                        <h3>🫓 Rajasthani Treats</h3>
+                        <div class="recipe-preview">
+                            <span>🥮 Dal Baati</span>
+                            <span>🧈 Ghevar</span>
+                            <span>🌶️ Laal Maas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-display" id="recipeDisplay">
+                    <h3>Choose a recipe book to start cooking! 👩‍🍳</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- World 6: Friendship Quiz Game -->
+        <div class="world" id="world-quiz">
+            <div class="world-header">
+                <h2>🎮 How Well Do You Know Us? 🎮</h2>
+                <p>A fun quiz about our amazing friendship!</p>
+            </div>
+            <div class="quiz-container">
+                <div class="quiz-scoreboard">
+                    <div class="score-item">
+                        <span class="score-label">Score</span>
+                        <span class="score-value" id="quizScore">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Question</span>
+                        <span class="score-value"><span id="currentQuestion">1</span>/10</span>
+                    </div>
+                </div>
+                <div class="quiz-content" id="quizContent">
+                    <!-- Quiz questions will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- World 7: Personal Poems Generator -->
+        <div class="world" id="world-poems">
+            <div class="world-header">
+                <h2>📝 Poems Written for Ichha 📝</h2>
+                <p>Beautiful verses about our friendship!</p>
+            </div>
+            <div class="poems-container">
+                <div class="poem-selector">
+                    <button class="poem-btn active" data-theme="friendship">👭 Friendship</button>
+                    <button class="poem-btn" data-theme="birthday">🎂 Birthday</button>
+                    <button class="poem-btn" data-theme="memories">💭 Memories</button>
+                    <button class="poem-btn" data-theme="future">🌟 Future</button>
+                </div>
+                <div class="poem-display" id="poemDisplay">
+                    <!-- Poems will be displayed here -->
+                </div>
+                <div class="poem-controls">
+                    <button class="poem-control-btn" onclick="generateNewPoem()">✨ Generate New Poem</button>
+                    <button class="poem-control-btn" onclick="speakPoem()">🔊 Hear Poem</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- World 8: Secret Messages Decoder -->
+        <div class="world" id="world-secrets">
+            <div class="world-header">
+                <h2>🔍 Hidden Messages & Secrets 🔍</h2>
+                <p>Discover secret messages hidden throughout your universe!</p>
+            </div>
+            <div class="secrets-container">
+                <div class="decoder-area">
+                    <div class="cipher-wheel">
+                        <div class="wheel-outer"></div>
+                        <div class="wheel-inner"></div>
+                    </div>
+                    <div class="secret-input">
+                        <input type="text" id="secretCode" placeholder="Enter the secret code...">
+                        <button onclick="decodeSecret()">🔓 Decode</button>
+                    </div>
+                </div>
+                <div class="secrets-found">
+                    <h3>🎉 Secrets Discovered: <span id="secretsCount">0</span>/7</h3>
+                    <div class="secret-list" id="secretList">
+                        <!-- Discovered secrets will appear here -->
+                    </div>
+                </div>
+                <div class="secret-clues">
+                    <h3>🕵️‍♀️ Clues to Find Secrets:</h3>
+                    <ul>
+                        <li>Look for hidden numbers in the garden flowers...</li>
+                        <li>Connect the right stars in the constellation...</li>
+                        <li>Check the recipe ingredients carefully...</li>
+                        <li>Some gift boxes have secret compartments...</li>
+                        <li>Timeline photos might have hidden codes...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Message Modal -->
+    <div class="modal" id="voiceModal">
+        <div class="modal-content voice-modal">
+            <span class="close-modal">&times;</span>
+            <h3>🎤 Voice Message for Ichha</h3>
+            <div class="voice-controls">
+                <button id="recordBtn" class="voice-btn">🎤 Record Message</button>
+                <button id="playBtn" class="voice-btn" disabled>▶️ Play Message</button>
+                <button id="saveBtn" class="voice-btn" disabled>💾 Save Message</button>
+            </div>
+            <div class="voice-visualizer" id="voiceVisualizer"></div>
+            <div class="voice-instructions">
+                <p>Record a special birthday message that she can play anytime!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Universal Controls -->
+    <div class="universe-controls">
+        <button class="control-btn" onclick="toggleMusic()" id="musicToggle">
+            🎵 Play Music
+        </button>
+        <button class="control-btn" onclick="takeScreenshot()">
+            📸 Screenshot
+        </button>
+        <button class="control-btn" onclick="shareUniverse()">
+            📤 Share
+        </button>
+        <button class="control-btn" onclick="resetUniverse()">
+            🔄 Reset
+        </button>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <!-- We'll generate this dynamically -->
+    </audio>
+
+    <script src="assets/js/special-universe.js"></script>
+    <script>
+        // Initialize the magical universe
+        document.addEventListener('DOMContentLoaded', initializeMagicalUniverse);
+    </script>
+</body>
+</html>

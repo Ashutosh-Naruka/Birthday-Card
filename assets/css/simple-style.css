@@ -1,0 +1,1025 @@
+/* 🌸 Simple Birthday Card Styles for Ichha 🌸 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff6b9d;
+    --light-pink: #ffeef3;
+    --blue: #a8edea;
+    --light-blue: #e8f4f8;
+    --purple: #d63384;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
+    --gradient: linear-gradient(135deg, #ffeef3, #e8f4f8);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--gradient);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--pink), var(--blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.8s ease;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
+
+.birthday-title h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    animation: bounceIn 1s ease-out;
+}
+
+.birthday-title h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    animation: bounceIn 1s ease-out 0.3s both;
+}
+
+.welcome-message {
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.welcome-message p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.start-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.start-btn:hover {
+    background: white;
+    color: var(--pink);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating flowers on welcome screen */
+.floating-flowers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Main Card Container */
+.card-container {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card-container.active {
+    display: block;
+    animation: slideIn 0.8s ease-out;
+}
+
+/* Simple Navigation */
+.simple-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: white;
+    border: 2px solid var(--pink);
+    color: var(--pink);
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background: var(--pink);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3);
+}
+
+/* Sections */
+.section {
+    display: none;
+    max-width: 1000px;
+    margin: 0 auto;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.section.active {
+    display: block;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--purple);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    opacity: 0.8;
+}
+
+/* Memories Section */
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.memory-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+}
+
+.memory-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--pink);
+    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.3);
+}
+
+.memory-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.memory-card:nth-child(2) .memory-icon { animation-delay: 0.3s; }
+.memory-card:nth-child(3) .memory-icon { animation-delay: 0.6s; }
+.memory-card:nth-child(4) .memory-icon { animation-delay: 0.9s; }
+
+.memory-card h3 {
+    font-size: 1.3rem;
+    color: var(--purple);
+    margin-bottom: 8px;
+}
+
+.memory-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Birthday Wishes Section */
+.wishes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.wish-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.wish-card:hover {
+    transform: translateY(-5px);
+}
+
+.wish-emoji {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.wish-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.special-wish {
+    background: linear-gradient(135deg, var(--light-pink), var(--light-blue));
+    border: 2px solid var(--pink);
+}
+
+.special-wish p {
+    color: var(--purple);
+    font-size: 1.2rem;
+}
+
+/* Beautiful Tribute Section */
+.tribute-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.main-photo-frame {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.main-photo-frame:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.3);
+}
+
+.main-photo-frame .photo-placeholder {
+    background: var(--light-pink);
+    border-radius: 15px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--pink);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.main-photo-frame .placeholder-content {
+    text-align: center;
+    color: #666;
+}
+
+.main-photo-frame .placeholder-content span {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.photo-caption {
+    font-style: italic;
+    color: var(--purple);
+    font-size: 1.1rem;
+}
+
+.tribute-qualities {
+    text-align: center;
+}
+
+.tribute-qualities h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--purple);
+    margin-bottom: 30px;
+}
+
+.qualities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.quality-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+}
+
+.quality-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--pink);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+}
+
+.quality-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.quality-card h4 {
+    color: var(--purple);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.quality-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.achievements-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.achievements-section h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--purple);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--light-pink);
+    padding: 15px 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+    background: var(--pink);
+    color: white;
+    transform: translateX(10px);
+}
+
+.achievement-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.achievement-text h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.achievement-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.birthday-countdown {
+    background: linear-gradient(135deg, var(--light-pink), var(--light-blue));
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.birthday-countdown h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--purple);
+    margin-bottom: 25px;
+}
+
+.celebration-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--pink);
+    display: block;
+    margin-bottom: 8px;
+    animation: countUp 2s ease-out;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gentle-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Enhanced Surprise Section */
+.surprise-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.surprise-item {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.surprise-item:hover {
+    transform: translateY(-5px);
+}
+
+.surprise-item h3 {
+    color: var(--purple);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+/* Food Corner Styles */
+.food-corner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cuisine-section h4 {
+    color: var(--pink);
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.food-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.food-item {
+    background: var(--light-pink);
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.food-item:hover {
+    background: var(--pink);
+    color: white;
+    transform: translateX(10px);
+}
+
+.food-item span {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.food-item div {
+    flex: 1;
+}
+
+.food-item strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.food-item small {
+    opacity: 0.8;
+    font-size: 0.85rem;
+}
+
+/* Entertainment Center */
+.entertainment-center {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.music-visualizer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 4px;
+    height: 60px;
+    padding: 10px;
+    background: var(--light-pink);
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.visualizer-bar {
+    width: 6px;
+    min-height: 10px;
+    background: var(--pink);
+    border-radius: 3px;
+    animation: musicBars 1.5s ease-in-out infinite;
+}
+
+.visualizer-bar:nth-child(2) { animation-delay: 0.1s; }
+.visualizer-bar:nth-child(3) { animation-delay: 0.2s; }
+.visualizer-bar:nth-child(4) { animation-delay: 0.3s; }
+.visualizer-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes musicBars {
+    0%, 100% { height: 10px; }
+    50% { height: 40px; }
+}
+
+/* Games Collection */
+.games-collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.mini-game {
+    background: var(--light-blue);
+    border-radius: 15px;
+    padding: 20px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.mini-game:hover {
+    background: var(--blue);
+    color: white;
+    border-color: var(--pink);
+    transform: translateY(-5px);
+}
+
+.game-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.mini-game h4 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.mini-game p {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+/* Fun Zone */
+.fun-zone {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.fun-activity {
+    background: var(--light-pink);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fun-activity:hover {
+    background: var(--pink);
+    color: white;
+    transform: scale(1.05);
+}
+
+.fun-activity span {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.fun-activity h4 {
+    margin-bottom: 3px;
+    font-size: 1rem;
+}
+
+.fun-activity p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Message Board */
+.message-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.message-card {
+    background: linear-gradient(135deg, var(--light-pink), var(--light-blue));
+    border-radius: 15px;
+    padding: 20px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.message-card:hover {
+    border-color: var(--pink);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+}
+
+.message-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+    animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+.message-card h4 {
+    color: var(--purple);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.message-card p {
+    font-size: 0.85rem;
+    color: #666;
+    opacity: 0.9;
+}
+
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* Creation Tools */
+.creation-tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.create-btn {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.create-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+}
+
+/* Music Button */
+.music-btn {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+}
+
+.music-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+}
+
+/* Secret Message */
+.secret-message {
+    background: var(--light-blue);
+    border: 2px dashed var(--blue);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secret-message:hover {
+    border-style: solid;
+    background: var(--blue);
+    color: white;
+}
+
+.secret-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Mini Quiz */
+.mini-quiz {
+    text-align: center;
+}
+
+.mini-quiz p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--purple);
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.quiz-options button {
+    background: var(--light-pink);
+    border: 2px solid var(--pink);
+    color: var(--purple);
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.quiz-options button:hover {
+    background: var(--pink);
+    color: white;
+}
+
+#quizResult {
+    font-weight: 500;
+    color: var(--purple);
+    margin-top: 10px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: modalSlideIn 0.4s ease-out;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--purple);
+}
+
+.modal-body {
+    clear: both;
+    padding-top: 10px;
+}
+
+.modal-body h3 {
+    color: var(--purple);
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-body p {
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Background Elements */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-element {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.7;
+    animation: floatUp 8s linear infinite;
+}
+
+/* Animations */
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes floatUp {
+    from { 
+        transform: translateY(100vh) rotate(0deg); 
+        opacity: 0; 
+    }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    to { 
+        transform: translateY(-100px) rotate(360deg); 
+        opacity: 0; 
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .birthday-title h1 { font-size: 2.5rem; }
+    .birthday-title h2 { font-size: 2rem; }
+    .section-header h2 { font-size: 2rem; }
+    
+    .simple-nav {
+        gap: 10px;
+    }
+    
+    .nav-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .memories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+    
+    .memory-card {
+        padding: 20px 15px;
+    }
+    
+    .memory-icon {
+        font-size: 2.5rem;
+    }
+    
+    .surprise-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .quiz-options {
+        gap: 8px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .birthday-title h1 { font-size: 2rem; }
+    .birthday-title h2 { font-size: 1.6rem; }
+    .welcome-message p { font-size: 1.1rem; }
+    .start-btn { font-size: 1rem; padding: 12px 25px; }
+    
+    .section-header h2 { font-size: 1.8rem; }
+    .section-header p { font-size: 1rem; }
+    
+    .card-container { padding: 15px; }
+    
+    .memories-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .wish-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .wish-card p {
+        font-size: 1rem;
+    }
+}

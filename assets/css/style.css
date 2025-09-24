@@ -1,0 +1,495 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffeef3 0%, #e8f4f8 50%, #f0e8ff 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated particles background */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(90deg); }
+    50% { transform: translateY(-40px) rotate(180deg); }
+    75% { transform: translateY(-20px) rotate(270deg); }
+}
+
+/* Main card container */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    z-index: 10;
+    position: relative;
+}
+
+.greeting-text {
+    margin-bottom: 30px;
+    text-align: center;
+    animation: fadeInDown 1s ease-out;
+}
+
+.greeting-text h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #d63384;
+    text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3D Card Styles */
+.card {
+    width: 400px;
+    height: 280px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.card.opened {
+    transform: rotateY(-180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #fff;
+}
+
+.card-left, .card-right {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border: 3px solid #fff;
+    transform: rotateY(180deg);
+}
+
+.card-left {
+    transform-origin: left;
+    left: -100%;
+}
+
+.card-right {
+    transform-origin: right;
+    right: -100%;
+}
+
+/* Cover design */
+.cover-design {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.flower-pattern {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    bottom: -50px;
+    pointer-events: none;
+}
+
+.flower {
+    position: absolute;
+    font-size: 2rem;
+    animation: rotate 4s linear infinite;
+    opacity: 0.8;
+}
+
+.flower-1 { top: 20px; left: 30px; animation-delay: 0s; }
+.flower-2 { top: 30px; right: 30px; animation-delay: 1s; }
+.flower-3 { bottom: 30px; left: 40px; animation-delay: 2s; }
+.flower-4 { bottom: 20px; right: 40px; animation-delay: 3s; }
+
+@keyframes rotate {
+    from { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    to { transform: rotate(360deg) scale(1); }
+}
+
+.cover-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.cover-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.cover-heart {
+    font-size: 2rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* Inside card content */
+.left-content, .right-content {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.blooming-garden {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.bloom-flower {
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: bloom 2s ease-in-out infinite;
+    position: relative;
+}
+
+.bloom-flower:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.8));
+}
+
+@keyframes bloom {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(5deg); }
+    50% { transform: scale(1.2) rotate(-5deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
+}
+
+.memory-text {
+    text-align: center;
+    color: #5a5a5a;
+}
+
+.memory-text p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.click-hint {
+    font-size: 0.9rem;
+    color: #ff6b9d;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Right side content */
+.birthday-message {
+    color: #444;
+    text-align: center;
+}
+
+.birthday-message h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #d63384;
+    margin-bottom: 15px;
+}
+
+.birthday-message p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.food-celebration {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.food-item {
+    font-size: 1.8rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.food-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.food-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.signature {
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.from-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #ff6b9d;
+}
+
+/* Photo gallery */
+.photo-gallery {
+    margin-top: 20px;
+}
+
+.photo-frame {
+    width: 100%;
+    height: 120px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffeaa7, #fab1a0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.photo-placeholder span {
+    animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Memory modal */
+.memory-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #fff5f5 0%, #f0f9ff 100%);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    animation: modalSlideIn 0.5s ease-out;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #d63384;
+}
+
+.modal-body {
+    text-align: center;
+    padding: 20px;
+    color: #444;
+}
+
+.modal-body h4 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #d63384;
+    margin-bottom: 15px;
+}
+
+.modal-body p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Music controls */
+.music-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.music-btn {
+    background: linear-gradient(135deg, #ff6b9d, #c44569);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(196, 69, 105, 0.3);
+}
+
+.music-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(196, 69, 105, 0.4);
+}
+
+/* Floating food animations */
+.floating-foods {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.floating-food {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatFood 8s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes floatFood {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .card {
+        width: 350px;
+        height: 250px;
+    }
+    
+    .greeting-text h1 {
+        font-size: 2rem;
+    }
+    
+    .cover-title {
+        font-size: 2rem;
+    }
+    
+    .cover-name {
+        font-size: 1.6rem;
+    }
+    
+    .bloom-flower {
+        font-size: 2rem;
+    }
+    
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 300px;
+        height: 220px;
+    }
+    
+    .left-content, .right-content {
+        padding: 15px;
+    }
+    
+    .birthday-message p {
+        font-size: 0.85rem;
+    }
+    
+    .photo-frame {
+        height: 100px;
+    }
+}
